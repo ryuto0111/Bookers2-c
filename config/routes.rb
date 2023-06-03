@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
   resources :chats, only: [:show, :create]
-  resources :groups, only:[:index, :show, :edit, :create, :update, :new, :show]
+  resources :groups, only:[:index, :show, :edit, :create, :update, :new, :show] do
+    get 'join' => 'groups#join'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
